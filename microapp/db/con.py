@@ -14,4 +14,4 @@ engine = create_engine(
     poolclass=NullPool,
 )
 
-Session = sessionmaker(engine)
+Session = sessionmaker(engine, expire_on_commit=False)

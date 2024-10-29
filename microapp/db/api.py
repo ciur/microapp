@@ -13,7 +13,6 @@ def create_user(
 
     user = User(id=uuid.uuid4(), username=username, email=email)
     session.add(user)
-    validated_user = models.User.model_validate(user)
 
     try:
         session.commit()
@@ -32,4 +31,4 @@ def create_user(
             )
             error = models.Error(attrs=[attr_err])
 
-    return validated_user, error
+    return models.User.model_validate(user), error
