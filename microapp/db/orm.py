@@ -5,7 +5,7 @@ from microapp.db.base import Base
 
 
 class User(Base):
-    __tablename__ = "core_user"
+    __tablename__ = "users"
 
     id: Mapped[UUID] = mapped_column(primary_key=True, insert_default=uuid.uuid4())
     username: Mapped[str]
