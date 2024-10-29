@@ -8,19 +8,15 @@ from microapp.db.engine import get_engine
 from microapp.main import router
 
 
-@pytest.fixture(autouse=True, scope="function")
-def db_schema():
-    engine = get_engine()
-    Base.metadata.create_all(engine)
-    yield
-    Base.metadata.drop_all(engine)
-
-
-@pytest.fixture()
+@pytest.fixture(scope="function")
 def db_session():
     engine = get_engine()
+    Base.metadata.create_all(engine)
+
     with Session(engine) as session:
         yield session
+
+    Base.metadata.drop_all(engine)
 
 
 @pytest.fixture()

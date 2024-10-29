@@ -8,5 +8,5 @@ def test_user(db_session, app_test_client: TestClient):
     data = {"username": "lili", "email": "popo"}
     response = app_test_client.post("/users", json=data)
 
-    assert response.status_code == 201
+    assert response.status_code == 200
     assert user

@@ -1,3 +1,5 @@
+import uuid
+
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from microapp.db import api as dbapi
@@ -18,5 +20,7 @@ def create_user_endpoint(
     created_user = dbapi.create_user(
         db_session, username=user.username, email=user.email
     )
+
+    db_session.close()
 
     return created_user
