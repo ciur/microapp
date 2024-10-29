@@ -12,3 +12,13 @@ class NewUser(BaseModel):
 
 class User(NewUser):
     id: uuid.UUID
+
+
+class AttrError(BaseModel):
+    name: str
+    message: str
+
+
+class Error(BaseModel):
+    attrs: list[AttrError] | None = None
+    messages: list[str] | None = None
