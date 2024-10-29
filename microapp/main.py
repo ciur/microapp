@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from microapp.db.engine import Session
+from microapp.db.con import Session
 from microapp.db import api as dbapi
 from microapp.models import User, NewUser
 

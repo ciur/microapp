@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
 from microapp.db.base import Base
-from microapp.db.engine import engine, Session
+from microapp.db.con import engine, Session
 from microapp.main import router
 
 
