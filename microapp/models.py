@@ -14,6 +14,15 @@ class User(NewUser):
     id: uuid.UUID
 
 
+class NewGroup(BaseModel):
+    name: str
+    model_config = ConfigDict(from_attributes=True)
+
+
+class Group(NewGroup):
+    id: int
+
+
 class AttrError(BaseModel):
     name: str
     message: str
